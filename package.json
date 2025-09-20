@@ -1,0 +1,20 @@
+{
+  "name": "introducao-api-nodejs",
+  "version": "1.0.0",
+  "description": "Introdução API Node JS  - Express, MySQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JULIOcesar353/introducao-api-nodejs.git"
+  },
+  "keywords": ["NodeJS", "Express", "MySQL", "API"],
+  "author": "Julio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JULIOcesar353/introducao-api-nodejs/issues"
+  },
+  "homepage": "https://github.com/JULIOcesar353/introducao-api-nodejs#readme"
+}
