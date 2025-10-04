@@ -1,0 +1,80 @@
+
+Dicionário de dados
+
+
+
+Quadro 1 - Tabela CARGO_PERMISSOES
+Campo Lógico	Campo Físico	Tipo de dados	Tamanho do campo	PK	FK	Observações
+Id do cargo	crg_id	INT		x	x	
+Id da permissão	prm_id	INT		x	x	
+Cadastrar permissão de cargo	crg_prm_cadastrar	BIT				0 – Não, 1 - Sim
+Editar permissão de cargo	crg_perm_editar	BIT				0 – Não, 1 – Sim
+Consultar permissão de cargo	crg_prm_consultar	BIT				0 – Não, 1 - Sim
+Fonte: Autoria própria
+
+Quadro 2 - Tabela PERMISSOES
+Campo Lógico	Campo Físico	Tipo de dados	Tamanho do campo	PK	FK	Observações
+Id da permissão	prm_id	INT		x		Auto_Incremento
+Nome da permissão	prm_nome	VARCHAR	60			
+Fonte: Autoria própria
+
+Quadro 3 - Tabela TAREFAS
+Campo Lógico	Campo Físico	Tipo de dados	Tamanho do campo	PK	FK	Observações
+Id da tarefa	tar_id	Int		x		Auto Incremento
+Tarefa setor id	tar_setor_id	Int			x	
+Tarefa criado por	tar_criado_por	Int			x	
+Titulo da tarefa	tar_titulo	Varchar	100			Nome da tarefa
+Descrição da tarefa	tar_descricao	Varchar	300			Descrição da tarefa
+Prioridade da Tarefa	tar_prioridade	Tinyint				0 - menor prioridade
+5 - maior prioridade
+Prazo da Tarefa	tar_prazo	DateTime				
+Status da tarefa	tar_status	BIT				0 – Pendente
+1 - Concluído
+Estimativa minutos	tar_estimativa_minutos	Int				
+Data de criação	tar_data_criacao	DateTime				
+Exigir Foto	tar_exige_foto	BIT				0 – Opcional, 
+1 - Obrigatório
+Fonte: Autoria própria
+
+Quadro 4 - Tabela SETORES
+Campo Lógico	Campo Físico	Tipo de dados	Tamanho do campo	PK	FK	Observações
+Identificador	set_id	INT		X		Auto incremento
+Nome do setor	set_nome	VARCHAR	60			Identificação
+						
+						
+Fonte: Autoria própria
+
+Quadro 5 - Tabela FUNCIONARIOS
+Campo Lógico	Campo Físico	Tipo de dados	Tamanho do campo	PK	FK	Observações
+Identificador	func_id	INT		X		Auto incremento
+Setor	func_setor_id	INT			X	
+Cargo	func_crg_id	INT			X	
+Nome 	func_nome	VARCHAR	60			Identificação
+Email	func_email	VARCHAR	80			UNIQUE
+Senha	func_senha	VARCHAR	255 			Será armazenada e criptografada
+Status	func_ativo	BIT				0 – Não 1 – Sim
+Data da criação	func_data_criacao	DATETIME				
+Fonte: Autoria própria
+
+Quadro 6 - Tabela CARGOS
+Campo Lógico	Campo Físico	Tipo de dados	Tamanho do campo	PK	FK	Observações
+Id do Cargo	crg_id	INT		x		Auto-Incremento
+Nome do cargo	crg_nome	VARCHAR	60			
+Fonte: Autoria própria
+
+Quadro 7 - Tabela ATRIBUICAO_TAREFAS
+Campo Lógico	Campo Físico	Tipo de dados	Tamanho do campo	PK	FK	Observações
+Id da atribuição	atr_id	INT		x		Auto-Incremento
+Id atribuição da tarefa	atr_tarefa_id	INT			x	
+Id atribuição do funcionário	atr_funcionario_id	INT			x	
+Data de atribuição	atr_data_atribuicao	DATETIME				
+Fonte: Autoria própria
+
+Quadro 8 - Tabela TAREFA_FOTOS
+Campo Lógico	Campo Físico	Tipo de dados	Tamanho do campo	PK	FK	Observações
+Foto	fot_id	INT		X		Auto Incremento
+ID da Tarefa Atribuida	fot_tarefa_id	INT			X	ID da tarefa
+Nome	fot_nome	VARCHAR	60			Nome da pessoa que enviou a foto
+Descrição	fot_descricao	VARCHAR	255			Descrição da foto
+Data de Envio	fot_data_envio	DATETIME				Data de envio 
+Fonte: Autoria própria
