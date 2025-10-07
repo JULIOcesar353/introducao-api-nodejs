@@ -17,8 +17,8 @@ CREATE TABLE SETORES (
 
 CREATE TABLE FUNCIONARIOS (
     func_id INT AUTO_INCREMENT PRIMARY KEY,
-    func_setor_id INT,
-    func_crg_id INT,
+    func_setor_id INT NOT NULL,
+    func_crg_id INT NOT NULL,
     func_nome VARCHAR(60) NOT NULL,
     func_email VARCHAR(80) UNIQUE NOT NULL,
     func_senha VARCHAR(255) NOT NULL,
@@ -41,15 +41,15 @@ CREATE TABLE CARGO_PERMISSOES (
 
 CREATE TABLE TAREFAS (
     tar_id INT AUTO_INCREMENT PRIMARY KEY,
-    tar_setor_id INT,
-    tar_criado_por INT,
+    tar_setor_id INT NOT NULL,
+    tar_criado_por INT NOT NULL,
     tar_titulo VARCHAR(100) NOT NULL,
-    tar_descricao VARCHAR(300),
-    tar_prioridade TINYINT,
-    tar_prazo DATETIME,
-    tar_status BIT,
-    tar_estimativa_minutos INT,
-    tar_data_criacao DATETIME,
+    tar_descricao VARCHAR(300) NOT NULL,
+    tar_prioridade TINYINT NOT NULL,
+    tar_prazo DATETIME NOT NULL,
+    tar_status BIT NOT NULL,
+    tar_estimativa_minutos INT NOT NULL,
+    tar_data_criacao DATETIME NOT NULL,
     tar_exige_foto BIT,
     FOREIGN KEY (tar_setor_id) REFERENCES SETORES(set_id),
     FOREIGN KEY (tar_criado_por) REFERENCES FUNCIONARIOS(func_id)
@@ -57,18 +57,18 @@ CREATE TABLE TAREFAS (
 
 CREATE TABLE ATRIBUICAO_TAREFAS (
     atr_id INT AUTO_INCREMENT PRIMARY KEY,
-    atr_tarefa_id INT,
-    atr_funcionario_id INT,
-    atr_data_atribuicao DATETIME,
+    atr_tarefa_id INT NOT NULL,
+    atr_funcionario_id INT NOT NULL,
+    atr_data_atribuicao DATETIME NOT NULL,
     FOREIGN KEY (atr_tarefa_id) REFERENCES TAREFAS(tar_id),
     FOREIGN KEY (atr_funcionario_id) REFERENCES FUNCIONARIOS(func_id)
 );
 
 CREATE TABLE TAREFA_FOTOS (
     fot_id INT AUTO_INCREMENT PRIMARY KEY,
-    fot_tarefa_id INT,
+    fot_tarefa_id INT NOT NULL,
     fot_nome VARCHAR(60) NOT NULL,
-    fot_descricao VARCHAR(255),
-    fot_data_envio DATETIME,
+    fot_descricao VARCHAR(255) NOT NULL,
+    fot_data_envio DATETIME NOT NULL,
     FOREIGN KEY (fot_tarefa_id) REFERENCES TAREFAS(tar_id)
 );
