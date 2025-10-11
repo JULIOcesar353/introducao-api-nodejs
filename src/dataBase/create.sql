@@ -46,8 +46,7 @@ CREATE TABLE TAREFAS (
     tar_titulo VARCHAR(100) NOT NULL,
     tar_descricao VARCHAR(300) NOT NULL,
     tar_prioridade TINYINT NOT NULL,
-    tar_prazo DATETIME NOT NULL,
-    tar_status BIT NOT NULL,
+    tar_prazo DATETIME NOT NULL,    
     tar_estimativa_minutos INT NOT NULL,
     tar_data_criacao DATETIME NOT NULL,
     tar_exige_foto BIT,
@@ -59,7 +58,8 @@ CREATE TABLE ATRIBUICAO_TAREFAS (
     atr_id INT AUTO_INCREMENT PRIMARY KEY,
     atr_tarefa_id INT NOT NULL,
     atr_funcionario_id INT NOT NULL,
-    atr_data_atribuicao DATETIME NOT NULL,
+    atr_data_atribuicao DATETIME NOT NULL, 
+    atr_status TINYINT NOT NULL,
     FOREIGN KEY (atr_tarefa_id) REFERENCES TAREFAS(tar_id),
     FOREIGN KEY (atr_funcionario_id) REFERENCES FUNCIONARIOS(func_id)
 );
